@@ -53,6 +53,12 @@ class ScoresController extends AppController
         $this->set(compact('score'));
         $this->set('_serialize', ['score']);
     }
+
+    /**
+     * @throws PusherException
+     * @throws GuzzleException
+     * @throws ApiErrorException
+     */
     public function subtract()
     {
         $this->request->allowMethod(['ajax']);

@@ -5,7 +5,7 @@
  */
 ?>
 <div class="scores index content">
-    <?= $this->Html->link(__('New Score'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('New Score'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
     <h3><?= __('Scores') ?></h3>
     <div class="table-responsive">
         <table>

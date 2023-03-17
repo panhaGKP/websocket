@@ -17,8 +17,8 @@
     </div>
 
     <div id="score-controls" style="" class="score_content">
-        <button id="add-button">Add</button>
-        <button id="subtract-button">Subtract</button>
+        <button id="add-button" class="btn btn-primary">Add</button>
+        <button id="subtract-button" class="btn btn-danger">Subtract</button>
     </div>
 </div>
 

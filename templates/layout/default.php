@@ -30,10 +30,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-ZuaQkO9MStXjaxL1n/LWx3xPqVPcgDNjn+vByI7kzP9oOcO3z1eQHVJEfM5jKcI" crossorigin="anonymous"></script>-->
     <?php echo $this->Html->script('jquery-3.6.1.min.js') ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake','custom']) ?>
+    <?php
+    echo $this->Html->css('BootstrapUI.bootstrap.min');
+    echo $this->Html->css(['BootstrapUI./font/bootstrap-icons', 'BootstrapUI./font/bootstrap-icon-sizes']);
+    echo $this->Html->script(['BootstrapUI.popper.min', 'BootstrapUI.bootstrap.min']);
+    ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
