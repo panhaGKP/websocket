@@ -1,34 +1,34 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var iterable<\App\Model\Entity\Score> $scores
+ * @var iterable<\App\Model\Entity\Team> $teams
  */
 ?>
-<div class="scores index content">
-    <?= $this->Html->link(__('New Score'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Scores') ?></h3>
+<div class="teams index content">
+    <?= $this->Html->link(__('New Team'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+    <h3><?= __('Teams') ?></h3>
     <div class="table-responsive">
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('score') ?></th>
+                    <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($scores as $score): ?>
+                <?php foreach ($teams as $team): ?>
                 <tr>
-                    <td><?= $this->Number->format($score->id) ?></td>
-                    <td><?= $score->score === null ? '' : $this->Number->format($score->score) ?></td>
-                    <td><?= h($score->created) ?></td>
-                    <td><?= h($score->modified) ?></td>
+                    <td><?= $this->Number->format($team->id) ?></td>
+                    <td><?= h($team->name) ?></td>
+                    <td><?= h($team->created) ?></td>
+                    <td><?= h($team->modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $score->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $score->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $score->id], ['confirm' => __('Are you sure you want to delete # {0}?', $score->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $team->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $team->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $team->id], ['confirm' => __('Are you sure you want to delete # {0}?', $team->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

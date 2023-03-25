@@ -21,8 +21,8 @@ class ScoresFixture extends TestFixture
             [
                 'id' => 1,
                 'score' => 1,
-                'created' => '2023-02-12 13:04:32',
-                'modified' => '2023-02-12 13:04:32',
+                'created' => '2023-03-17 22:37:10',
+                'modified' => '2023-03-17 22:37:10',
             ],
         ];
         parent::init();

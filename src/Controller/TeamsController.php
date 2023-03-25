@@ -4,12 +4,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 /**
- * Scores Controller
+ * Teams Controller
  *
- * @property \App\Model\Table\ScoresTable $Scores
- * @method \App\Model\Entity\Score[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\TeamsTable $Teams
+ * @method \App\Model\Entity\Team[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class ScoresController extends AppController
+class TeamsController extends AppController
 {
     /**
      * Index method
@@ -18,25 +18,25 @@ class ScoresController extends AppController
      */
     public function index()
     {
-        $scores = $this->paginate($this->Scores);
+        $teams = $this->paginate($this->Teams);
 
-        $this->set(compact('scores'));
+        $this->set(compact('teams'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Score id.
+     * @param string|null $id Team id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $score = $this->Scores->get($id, [
+        $team = $this->Teams->get($id, [
             'contain' => [],
         ]);
 
-        $this->set(compact('score'));
+        $this->set(compact('team'));
     }
 
     /**
@@ -46,58 +46,58 @@ class ScoresController extends AppController
      */
     public function add()
     {
-        $score = $this->Scores->newEmptyEntity();
+        $team = $this->Teams->newEmptyEntity();
         if ($this->request->is('post')) {
-            $score = $this->Scores->patchEntity($score, $this->request->getData());
-            if ($this->Scores->save($score)) {
-                $this->Flash->success(__('The score has been saved.'));
+            $team = $this->Teams->patchEntity($team, $this->request->getData());
+            if ($this->Teams->save($team)) {
+                $this->Flash->success(__('The team has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The score could not be saved. Please, try again.'));
+            $this->Flash->error(__('The team could not be saved. Please, try again.'));
         }
-        $this->set(compact('score'));
+        $this->set(compact('team'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Score id.
+     * @param string|null $id Team id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $score = $this->Scores->get($id, [
+        $team = $this->Teams->get($id, [
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $score = $this->Scores->patchEntity($score, $this->request->getData());
-            if ($this->Scores->save($score)) {
-                $this->Flash->success(__('The score has been saved.'));
+            $team = $this->Teams->patchEntity($team, $this->request->getData());
+            if ($this->Teams->save($team)) {
+                $this->Flash->success(__('The team has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The score could not be saved. Please, try again.'));
+            $this->Flash->error(__('The team could not be saved. Please, try again.'));
         }
-        $this->set(compact('score'));
+        $this->set(compact('team'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Score id.
+     * @param string|null $id Team id.
      * @return \Cake\Http\Response|null|void Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $score = $this->Scores->get($id);
-        if ($this->Scores->delete($score)) {
-            $this->Flash->success(__('The score has been deleted.'));
+        $team = $this->Teams->get($id);
+        if ($this->Teams->delete($team)) {
+            $this->Flash->success(__('The team has been deleted.'));
         } else {
-            $this->Flash->error(__('The score could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The team could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

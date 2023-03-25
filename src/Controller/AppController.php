@@ -40,6 +40,7 @@ class AppController extends Controller
     public function initialize(): void
     {
         parent::initialize();
+        date_default_timezone_set('Asia/Phnom_Penh');
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
